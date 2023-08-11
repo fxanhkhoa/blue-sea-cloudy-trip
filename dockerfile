@@ -9,6 +9,6 @@ COPY . .
 RUN npm run build:ssr
 
 FROM node:18.17-slim as production
-COPY --from=builder ./dist ./dist
+COPY --from=builder /usr/src/app/dist ./dist
 CMD ["node", "dist/blue-sea-cloudy-trip/server/main.js"]
 EXPOSE 4000
