@@ -10,5 +10,5 @@ RUN npm run build-prod
 
 FROM nginx:latest
 COPY ./nginx/nginx.conf /etc/nginx/conf.d/default.conf
-COPY --from=builder /usr/src/app/dist/producer-web /usr/share/nginx/html
+COPY --from=builder /usr/src/app/dist/blue-sea-cloudy-trip /usr/share/nginx/html
 EXPOSE 80
