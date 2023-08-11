@@ -1,0 +1,46 @@
+* {
+    box-sizing: border-box;
+}
+
+.main-body {
+    background-color: #111;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+.waviy {
+    position: relative;
+    background-image: url('../../assets/images/background-Da-Lat.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.waviy span {
+    position: relative;
+    display: inline-block;
+    font-size: 90px;
+    font-weight: bold;
+    color: #000;
+    text-shadow: 1px 0px 1px #cccccc, 0px 1px 1px #eeeeee, 2px 1px 1px #cccccc,
+        1px 2px 1px #eeeeee, 3px 2px 1px #cccccc, 2px 3px 1px #eeeeee,
+        4px 3px 1px #cccccc, 3px 4px 1px #eeeeee, 5px 4px 1px #cccccc,
+        4px 5px 1px #eeeeee, 6px 5px 1px #cccccc, 5px 6px 1px #eeeeee,
+        7px 6px 1px #cccccc;
+    text-transform: uppercase;
+    animation: flip 2s infinite;
+    animation-delay: calc(0.2s * var(--i));
+}
+@keyframes flip {
+    0%,
+    80% {
+        transform: rotateY(360deg);
+    }
+}
+
+.left-div {
+    width: 0;
+}
+
+.right-div {
+    width: 100%;
+}
