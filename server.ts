@@ -23,6 +23,8 @@ function startWindow() {
     (global as any).navigator = win.navigator;
     (global as any).location = win.location;
     (global as any)['window']['isMobileOnServer'] = true;
+    const requestAnimationFrame = (fn: Function) => fn();
+    global.requestAnimationFrame = requestAnimationFrame;
     global['localStorage'] = localStorage;
 }
 
