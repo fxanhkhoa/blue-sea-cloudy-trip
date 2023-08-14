@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
+import { Component, Inject, OnInit, PLATFORM_ID } from '@angular/core';
 import AOS from 'aos';
 
 @Component({
@@ -7,8 +8,12 @@ import AOS from 'aos';
     styleUrls: ['./timeline.component.scss'],
 })
 export class TimelineComponent implements OnInit {
+    constructor(@Inject(PLATFORM_ID) private platformId: Object) {}
+    
     ngOnInit(): void {
-        AOS.init(); //AOS - 2
-        AOS.refresh();
+        if (isPlatformBrowser(this.platformId)) {
+            AOS.init({ once: true, duration: 1000 });
+            AOS.refresh();
+        }
     }
 }

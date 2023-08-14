@@ -6,9 +6,9 @@ COPY package-lock.json .
 RUN npm install
 
 COPY . .
-RUN npm run build-prod
+RUN npm run build:ssr
 
-FROM nginx:latest
-COPY ./nginx/nginx.conf /etc/nginx/conf.d/default.conf
-COPY --from=builder /usr/src/app/dist/blue-sea-cloudy-trip/browser /usr/share/nginx/html
-EXPOSE 80
+FROM node:18.17-slim as production
+COPY --from=builder /usr/src/app/dist ./dist
+CMD ["node", "dist/blue-sea-cloudy-trip/server/main.js"]
+EXPOSE 4000
